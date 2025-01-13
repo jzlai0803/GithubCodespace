@@ -13,6 +13,7 @@ namespace ExpenseAPI.Models
         public ExpenseContext(DbContextOptions<ExpenseContext> options)
             : base(options)
         {
+            Expenses = Set<Expense>();
         }
 
         public DbSet<Expense> Expenses { get; set; }

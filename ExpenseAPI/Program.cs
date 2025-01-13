@@ -16,6 +16,15 @@ builder.Services.AddDbContext<ExpenseContext>(options =>
 
 var app = builder.Build();
 
+//產生預設資料
+using (var serviceScope = app.Services.CreateScope())
+{
+    var services = serviceScope.ServiceProvider;
+    var context = services.GetRequiredService<ExpenseContext>();
+    DataGenerator.Initialize(context);
+}
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

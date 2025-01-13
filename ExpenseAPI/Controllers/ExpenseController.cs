@@ -84,9 +84,18 @@ namespace ExpenseAPI.Controllers
         // POST: api/Expense
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        // Q;提供CURL 呼叫的範例
+        // a: curl -X POST -H "Content-Type: application/json" -d "{\"amount\":100,\"date\":\"2021-01-01T00:00:00\",\"description\":\"早餐\",\"category\":\"食\"}"  http://localhost:5045/api/Expense
+       // Description 是午餐，不能報銷
         [HttpPost]
         public async Task<ActionResult<Expense>> PostExpense(Expense expense)
         {
+
+            if (expense.Description == "午餐")
+            {
+                return BadRequest();
+            }
+
             _context.Expenses.Add(expense);
             await _context.SaveChangesAsync();
 
