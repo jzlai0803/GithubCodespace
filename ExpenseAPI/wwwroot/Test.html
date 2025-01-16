@@ -1,0 +1,82 @@
+// 產生ExpenseAPI/Test.html
+// 可輸入資料，並送出
+//下方有所有資料的列表
+// 送出後會將資料寫入資料庫
+// 並將資料庫的資料顯示在下方列表 
+
+<HTML>
+<HEAD>
+<TITLE>ExpenseAPI Test</TITLE>
+</HEAD>
+<BODY>
+<H1>ExpenseAPI Test</H1>
+<FORM METHOD="POST" ACTION="http://localhost:8080/ExpenseAPI/Expense">
+<TABLE>
+<TR>
+<TD>Category:</TD>
+// 輸入資料
+// 選項有: Food, Clothing, Housing, Transportation, Education, Entertainment, Others
+
+<TD><SELECT NAME="category">
+<OPTION VALUE="Food">Food</OPTION>
+<OPTION VALUE="Clothing">Clothing</OPTION>
+<OPTION VALUE="Housing">Housing</OPTION>
+<OPTION VALUE="Transportation">Transportation</OPTION>
+<OPTION VALUE="Education">Education</OPTION>
+<OPTION VALUE="Entertainment">Entertainment</OPTION>
+<OPTION VALUE="Others">Others</OPTION>
+
+</SELECT>
+</TR>
+<TR>
+<TD>Amount:</TD>
+<TD><INPUT TYPE="TEXT" NAME="amount"></TD>
+</TR>
+<TR>
+    // 輸入資料 日期 
+    //日期選擇器 
+    //預設日期為今天
+<TD>Date:</TD>
+<TD><INPUT TYPE="DATE" NAME="date" VALUE="<?php echo date('Y-m-d'); ?>"></TD>
+    
+
+</TR>
+<TR>
+<TD>Remark:</TD>
+<TD><INPUT TYPE="TEXT" NAME="remark"></TD>
+</TR>
+
+
+
+
+<INPUT TYPE="SUBMIT" VALUE="Submit">
+</FORM>
+<H2>Expense List</H2>
+<TABLE BORDER="1">
+<TR>
+<TH>Category</TH>
+<TH>Amount</TH>
+<TH>Date</TH>
+<TH>Remark</TH>
+</TR>
+<?php
+//連接資料庫
+$mysqli = new mysqli('localhost', 'root', 'password', 'expense');
+if ($mysqli->connect_error) {
+  die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+}
+//查詢資料庫
+$result = $mysqli->query('SELECT * FROM expense');
+while ($row = $result->fetch_assoc()) {
+  echo '<TR>';
+  echo '<TD>' . $row['category'] . '</TD>';
+  echo '<TD>' . $row['amount'] . '</TD>';
+  echo '<TD>' . $row['date'] . '</TD>';
+  echo '<TD>' . $row['remark'] . '</TD>';
+  echo '</TR>';
+}
+$result->free();
+$mysqli->close();
+?>
+</TABLE></FORM>
+</BODY>

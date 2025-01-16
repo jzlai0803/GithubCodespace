@@ -43,3 +43,4 @@
 /workspaces/GithubCodespace/ExpenseAPI/obj/Debug/net8.0/ExpenseAPI.genruntimeconfig.cache
 /workspaces/GithubCodespace/ExpenseAPI/obj/Debug/net8.0/ref/ExpenseAPI.dll
 /workspaces/GithubCodespace/ExpenseAPI/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/workspaces/GithubCodespace/ExpenseAPI/bin/Debug/net8.0/ExpenseAPI.staticwebassets.runtime.json

@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "cAQu0Hu5ibSHAfq0q3c3SLMjfNI0OYtIExXi5qHmXBw=",
+  "Hash": "NOX/qJX7k7RrWXRLM3JYWys/6r3lhtLbQ/D9WTAGBb4=",
   "Source": "ExpenseAPI",
   "BasePath": "_content/ExpenseAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "ExpenseAPI/wwwroot",
+      "Source": "ExpenseAPI",
+      "ContentRoot": "/workspaces/GithubCodespace/ExpenseAPI/wwwroot/",
+      "BasePath": "_content/ExpenseAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/workspaces/GithubCodespace/ExpenseAPI/wwwroot/Test.html",
+      "SourceId": "ExpenseAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/workspaces/GithubCodespace/ExpenseAPI/wwwroot/",
+      "BasePath": "_content/ExpenseAPI",
+      "RelativePath": "Test.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Test.html"
+    }
+  ]
 }
